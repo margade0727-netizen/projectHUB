@@ -4,7 +4,7 @@
 
 **Current phase:** product definition and technical planning.
 
-No application code, database schema, authentication flow, or legal copy has been implemented yet. This document records the agreed product direction and the work still required before launch.
+A React landing page and signup/login flow are implemented, with an API that stores bcrypt password hashes. Matching, messaging, persistent browser sessions, and production legal copy remain unimplemented. This document records the agreed product direction and the work still required before launch.
 
 ## Confirmed decisions
 
@@ -17,6 +17,7 @@ No application code, database schema, authentication flow, or legal copy has bee
 | Open Mode | Shows interest tags; mutual Match reveals both profiles and saves the connection |
 | Anonymous Mode | Shows no interests or identities; allows only Extend or End; never saves a connection |
 | Timed chat | Three-minute initial round plus up to three mutually accepted extensions (12 minutes maximum) |
+| Password length | 8 to 128 characters |
 | Open Mode decisions | Extend, Match, End |
 | Anonymous Mode decisions | Extend, End |
 | End/removal message | “Conversation unavailable” |
@@ -58,6 +59,7 @@ No application code, database schema, authentication flow, or legal copy has bee
 ### 3. Backend foundations
 
 - [ ] Choose and initialize the frontend/backend repository structure.
+- [x] Add MongoDB-backed sign-up and login endpoints with server-side bcrypt password hashing.
 - [ ] Configure environments, secrets, database connection, logging, and error handling.
 - [ ] Create schemas for users, profiles, interest tags, sessions, chats, messages, matches, blocks, reports, moderation actions, and policy acceptance.
 - [ ] Implement authentication, authorization, and account deletion.
@@ -70,6 +72,9 @@ No application code, database schema, authentication flow, or legal copy has bee
 ### 4. Frontend foundations
 
 - [ ] Build responsive mobile-first screens.
+- [x] Convert the landing-page prototype into reusable React components.
+- [x] Build a responsive, presentationally complete login/sign-up screen connected to the authentication API.
+- [x] Tune the desktop landing page to use the available viewport width while preserving fluid mobile gutters.
 - [ ] Build legal acceptance and profile onboarding.
 - [ ] Build mode selection, matching, anonymous chat, timer, and decision interfaces.
 - [ ] Build report/block forms and unavailable conversation states.

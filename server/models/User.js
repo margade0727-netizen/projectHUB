@@ -1,0 +1,26 @@
+const mongoose = require("mongoose");
+
+const userSchema = new mongoose.Schema(
+  {
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+      trim: true,
+      lowercase: true,
+      maxlength: 254,
+    },
+    passwordHash: {
+      type: String,
+      required: true,
+      select: false,
+    },
+    acceptedTermsAt: {
+      type: Date,
+      required: true,
+    },
+  },
+  { timestamps: true },
+);
+
+module.exports = mongoose.model("User", userSchema);
